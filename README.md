@@ -1,4 +1,4 @@
-Playwright Test Automation Project
+# Playwright Test Automation Project
 This project is a Test Automation framework built with Playwright and TypeScript. 
 
 🛠️ Features
@@ -95,6 +95,31 @@ npx playwright show-report
 For debugging, you can run tests with additional debug information. Use the --debug flag:
 ```
 npx playwright test --debug
-``
-`
+```
+2. Recording a trace locally
+To record a trace during development mode set the --trace flag to on when running your tests.
+```
+npx playwright test --trace=on
+```
+3. Recording a trace on CI
+Traces can be enabled during continuous integration on the first retry of a failed test by configuring the trace: 'on-first-retry' option in the test configuration file.
+```
+import { defineConfig } from '@playwright/test';
+export default defineConfig({
+  retries: 1,
+  use: {
+    trace: 'on-first-retry',
+  },
+});
+```
+Available options to record a trace:
+- 'on-first-retry' - Record a trace only when retrying a test for the first time.
+- 'on-all-retries' - Record traces for all test retries.
+- 'off' - Do not record a trace.
+- 'on' - Record a trace for each test. (not recommended as it's performance heavy)
+- 'retain-on-failure' - Record a trace for each test, but remove it from successful test runs.
+
 💡 Additional Resources
+[Official Playwright Documentation](https://playwright.dev/docs/intro)
+[Playwright GitHub Repository](https://github.com/microsoft/playwright)
+[Playwright Trace Viewer Guide](https://playwright.dev/docs/trace-viewer)
