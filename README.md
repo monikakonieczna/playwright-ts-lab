@@ -1,19 +1,19 @@
 # Playwright Test Automation Project
 This project is a Test Automation framework built with Playwright and TypeScript. 
 
-🛠️ Features
+## 🛠️ Features
 TypeScript Support: Leverages TypeScript for better code quality and type safety.
 
-📋 Prerequisites
+## 📋 Prerequisites
 Make sure you have the following installed:
 
 Node.js: Download Node.js
 npm (comes with Node.js)
 Git: Download Git
 
-📂 Project Structure
+## 📂 Project Structure
 
-🚀 Getting Started
+## 🚀 Getting Started
 Follow these steps to set up the project:
 
 1. Clone the Repository
@@ -25,12 +25,33 @@ git clone https://github.com/monikakonieczna/playwright-ts-lab.git
 npm install
 ```
 
-📝 Writing Tests
+## 📝 Writing Tests
 Tests can be found in the tests/ directory.
 
-⚙️ Configuration
+### 📖 Playwright Locator Syntax Guide
+Examples of various locator strategies in Playwright
+## 📖 Playwright Locator Syntax Guide
 
-🏃 Test Execution with CLI
+| **Locator Type**                  | **Description**                                                                                                      | **Example**                                                                                                           |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| **By Tag Name**                   | Selects elements by their tag name.                                                                                  | `page.locator('input');`                                                                                              |
+| **By ID**                         | Selects elements by their unique ID attribute.                                                                       | `page.locator('#inputEmail1');`                                                                                       |
+| **By Class Value**                | Selects elements by a specific class name.                                                                           | `page.locator('.status-basic');`                                                                                      |
+| **By Attribute**                  | Selects elements based on a specific attribute value.                                                                | `page.locator('[placeholder="Email"]');`                                                                              |
+| **By Exact Class Value**          | Exact match of the full class attribute value (not recommended due to Instability).                                  | `page.locator('[class="input-full-width size-medium status-basic shape-rectangle nb-transition"]');`                  |
+| **Combining Selectors**           | Combines multiple attributes for a more specific locator.                                                            | `page.locator('[type="email"][fullwidth]');`                                                                          |
+| **By XPath**                      | Selects elements using XPath syntax (use sparingly as it’s less readable).                                           | `page.locator('//*[@id="inputEmail1"]');`                                                                             |
+| **By Partial Text Match**         | Selects elements based on a partial text match, useful for dynamic content.                                          | `page.getByText('Using');`                                                                                            |
+| **By Full Text Match**            | Selects elements by matching the exact text content.                                                                 | `page.getByText('Using the Grid', { exact: true });`                                                                  |
+| **By Role and Name**              | Uses ARIA role and accessible name for alignment with accessibility practices.                                       | `page.getByRole('button', { name: 'Sign in' });`                                                                      |
+| **By Contextual Selection**       | Finds a div containing a button with specific text.                                                                  | `page.locator('div', { has: page.getByText('Click me') });`                                                           |
+| **Select Element by Index**       | Chooses an element based on its index in the list of matches (0-based index).                                        | `page.locator('input').nth(1);`                                                                                       |
+| **Avoiding Hard Waits**           | Waits for specific element states instead of using `waitForTimeout()` for better test reliability.                   | `page.locator('#inputEmail1').waitFor({ state: 'visible' });`                                                         |                                                                              |
+| **Chaining Locators for Context** | Narrows down the search within a specific context by chaining locators.                                              | `page.locator('.form').locator('input[type="email"]').fill('test@example.com');`                                      |
+| **Select First or Last Element**  | Simplifies selection of the first or last matching element in a list.                                                | `page.locator('li').first().click();`<br>`page.locator('li').last().click();`                                        |
+## ⚙️ Configuration
+
+## 🏃 Test Execution with CLI
 To execute tests with Playwright via the CLI, you can use the Playwright Test Runner, which is a powerful tool for running your tests, controlling the execution environment, and generating reports.
 1. Run all tests
 To run all the tests in your project, simply use the following command:
@@ -65,13 +86,13 @@ By default, Playwright runs tests in headless mode (without UI). To run the test
 npx playwright test --headed
 ```
 
-🏃Test Execution with UI
+## 🏃Test Execution with UI
 1. Run Tests from UI
 ```
 npx playwright test --ui
 ```
 
-📊 Reports
+## 📊 Reports
 1. Run Tests with Reporters
 Playwright provides several reporting options. You can generate HTML, JSON, or other formats.
 - HTML Report: To generate an HTML report after running tests:
@@ -88,9 +109,9 @@ HTML Report: If you've run tests with the --reporter=html flag, you can open the
 npx playwright show-report
 ```
 
-🤖 Continuous Integration
+## 🤖 Continuous Integration
 
-🛠️ Debugging Tips
+## 🛠️ Debugging Tips
 1. Run Tests with Debugging
 For debugging, you can run tests with additional debug information. Use the --debug flag:
 ```
@@ -118,8 +139,15 @@ Available options to record a trace:
 - 'off' - Do not record a trace.
 - 'on' - Record a trace for each test. (not recommended as it's performance heavy)
 - 'retain-on-failure' - Record a trace for each test, but remove it from successful test runs.
+4. Debugging with highlight()
+Highlight the element during test execution for easier debugging.
+```
+page.locator('input').highlight();
+```
 
-💡 Additional Resources
+## 💡 Additional Resources
 [Official Playwright Documentation](https://playwright.dev/docs/intro)
+
 [Playwright GitHub Repository](https://github.com/microsoft/playwright)
+
 [Playwright Trace Viewer Guide](https://playwright.dev/docs/trace-viewer)
