@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                       // Allows modern JavaScript features
+      "module": "CommonJS",                     // CommonJS is often used in Node.js
+      "lib": ["DOM", "ESNext"],                 // Adds support for DOM and modern ECMAScript features
+      "strict": true,                           // Enables all strict type-checking options
+      "esModuleInterop": true,                  // Enables default imports for CommonJS modules
+      "moduleResolution": "node",              // Ensures Node.js-style module resolution
+      "resolveJsonModule": true,                // Allows importing JSON files as modules
+      "skipLibCheck": true,                     // Skips type checking of declaration files
+      "types": ["playwright"],                  // Includes Playwright types globally
+      "allowSyntheticDefaultImports": true     // Allow default imports for modules without them
+    },
+    "include": ["src/**/*.ts", "Tests/**/*.ts"], // Include source and test files
+    "exclude": ["node_modules"]                  // Exclude dependencies
+  }
