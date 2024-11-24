@@ -1,20 +1,18 @@
 import { test } from '@playwright/test';
-import { NavigationPage, DatepickerPage } from '../../page-objects';
+import { PageManager } from '../../page-objects';
 
-let navigateTo: NavigationPage;
-let onDatePickerPage: DatepickerPage;
+let pageManager: PageManager;
 
 test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4200/');
-    navigateTo = new NavigationPage(page);
-    onDatePickerPage = new DatepickerPage(page);
-    await navigateTo.datePickerPage();
+    pageManager = new PageManager(page);
+    await pageManager.navigateTo().datePickerPage();
 });
 
 test('Should select date in Common Datepicker correctly', async ({ }) => {
-    await onDatePickerPage.selectDateFromTodayInCommonDatePicker(5);
+    await pageManager.onDatepickerPage().selectDateFromTodayInCommonDatePicker(5);
 });
 
 test('Should select date range in Datepicker With Range correctly', async ({ }) => {
-    await onDatePickerPage.selectRangeFromTodayInDatePicker(1, 2);
+    await pageManager.onDatepickerPage().selectRangeFromTodayInDatePicker(1, 2);
 });
