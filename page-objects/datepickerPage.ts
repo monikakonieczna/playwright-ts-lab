@@ -1,9 +1,11 @@
 import { expect, Locator, Page } from '@playwright/test';
+import { HelperBase } from './helperBase';
 
+// #region Types
 type DatepickerType = 'common' | 'range';
+// #endregion
 
-export class DatepickerPage {
-    readonly page: Page;
+export class DatepickerPage extends HelperBase {
     readonly calendarMonthAndYear: Locator;
     readonly calendarDayCellCommon: Locator;
     readonly calendarDayCellRange: Locator;
@@ -12,7 +14,7 @@ export class DatepickerPage {
     readonly calendarInputFieldDatepickerWithRange: Locator;
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
         this.calendarMonthAndYear = this.page.locator('nb-calendar-view-mode');
         this.calendarNavigation = this.page.locator('nb-calendar-navigation [data-name="chevron-right"]');
         this.calendarDayCellCommon = this.page.locator('[class="day-cell ng-star-inserted"]');

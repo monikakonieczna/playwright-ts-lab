@@ -1,8 +1,6 @@
 import { Page } from '@playwright/test';
 import { NavigationPage, DatepickerPage, FormLayoutPage } from '../page-objects';
 
-
-
 export class PageManager {
     private readonly page: Page;
     private readonly navigationPage: NavigationPage;

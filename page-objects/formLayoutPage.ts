@@ -1,10 +1,10 @@
 import { Page } from '@playwright/test';
+import { HelperBase } from './helperBase';
 
-export class FormLayoutPage {
-    readonly page: Page;
+export class FormLayoutPage extends HelperBase {
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
     }
     /**
      * This method fill out the grid form with user details
