@@ -28,9 +28,8 @@ npm install
 ## 📝 Writing Tests
 Tests can be found in the tests/ directory.
 
-### 📖 Playwright Locator Syntax Guide
-Examples of various locator strategies in Playwright
 ## 📖 Playwright Locator Syntax Guide
+Examples of various locator strategies in Playwright
 
 | **Locator Type**                  | **Description**                                                                                                      | **Example**                                                                                                           |
 |-----------------------------------|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -85,7 +84,22 @@ By default, Playwright runs tests in headless mode (without UI). To run the test
 ```
 npx playwright test --headed
 ```
-
+### 📖 Filter tests with specific tag
+To filter tests by tags, you can use the --grep or --grepInvert options in the CLI.
+1. Run tests with tag @special
+```
+npx playwright test --project=chromium --grep @special
+```
+2. Exclude tests with tag @special from execution
+```
+npx playwright test --project=chromium --grepInvert @special
+```
+3. You can tag all tests in a describe block or provide multiple tags 
+```
+test('Should allow user to fill and submit grid form correctly', {tag: ['@special', '@gridform']}, async ({ }) => {
+  await pageManager.onFormLayoutPage().submitUsingTheGridFormWithCredentialsAndSelectOption('email@gmail.com', 'Test123', 'Option 1');
+});
+```
 ## 🏃Test Execution with UI
 1. Run Tests from UI
 ```
