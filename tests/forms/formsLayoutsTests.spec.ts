@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   await pageManager.navigateTo().formLayoutsPage();
 });
 
-test('Should allow user to fill and submit grid form correctly', {tag: ['@special', '@gridform']}, async ({ }) => {
+test('Should allow user to fill and submit grid form correctly', {tag: ['@initial', '@gridform']}, async ({ }) => {
   await pageManager.onFormLayoutPage().submitUsingTheGridFormWithCredentialsAndSelectOption('email@gmail.com', 'Test123', 'Option 1');
 });
 test('Should allow user to complete inline form and submit successfully', async ({ }) => {

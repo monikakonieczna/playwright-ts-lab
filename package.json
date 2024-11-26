@@ -11,7 +11,7 @@
     "smoke-tests-firefox": "npx playwright test smokeTests.spec.ts --project=firefox",
     "smoke-tests-multiple-platforms-s": "smoke-tests-chromium && smoke-tests-firefox",
     "smoke-tests-multiple-platforms-p": "smoke-tests-chromium & smoke-tests-firefox",
-    "run-special-tests-chromium": "npx playwright test --project=chromium --grep @special"
+    "run-initial-tests-chromium": "npx playwright test --project=chromium --grep @initial"
   },
   "keywords": [],
   "author": "",

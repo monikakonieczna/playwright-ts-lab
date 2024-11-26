@@ -86,17 +86,17 @@ npx playwright test --headed
 ```
 ### 📖 Filter tests with specific tag
 To filter tests by tags, you can use the --grep or --grepInvert options in the CLI.
-1. Run tests with tag @special
+1. Run tests with tag @initial
 ```
-npx playwright test --project=chromium --grep @special
+npx playwright test --project=chromium --grep @initial
 ```
-2. Exclude tests with tag @special from execution
+2. Exclude tests with tag @initial from execution
 ```
-npx playwright test --project=chromium --grepInvert @special
+npx playwright test --project=chromium --grepInvert @initial
 ```
 3. You can tag all tests in a describe block or provide multiple tags 
 ```
-test('Should allow user to fill and submit grid form correctly', {tag: ['@special', '@gridform']}, async ({ }) => {
+test('Should allow user to fill and submit grid form correctly', {tag: ['@initial', '@gridform']}, async ({ }) => {
   await pageManager.onFormLayoutPage().submitUsingTheGridFormWithCredentialsAndSelectOption('email@gmail.com', 'Test123', 'Option 1');
 });
 ```

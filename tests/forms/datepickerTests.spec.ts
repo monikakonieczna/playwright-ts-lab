@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
     await pageManager.navigateTo().datePickerPage();
 });
 
-test('Should select date in Common Datepicker correctly', {tag: '@special'}, async ({ }) => {
+test('Should select date in Common Datepicker correctly', {tag: '@initial'}, async ({ }) => {
     await pageManager.onDatepickerPage().selectDateFromTodayInCommonDatePicker(5);
 });
 
