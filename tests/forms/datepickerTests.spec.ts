@@ -4,7 +4,7 @@ import { PageManager } from '../../page-objects';
 let pageManager: PageManager;
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/');
+    await page.goto('/');
     pageManager = new PageManager(page);
     await pageManager.navigateTo().datePickerPage();
 });

@@ -6,7 +6,7 @@ import { expect, test } from '@playwright/test';
  * in 'Test Suite 1' and 'Test Suite 2' suites.
  */
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:4200');
+  await page.goto('/');
 });
 
 /**
