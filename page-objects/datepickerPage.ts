@@ -16,7 +16,7 @@ export class DatepickerPage extends HelperBase {
     constructor(page: Page) {
         super(page);
         this.calendarMonthAndYear = this.page.locator('nb-calendar-view-mode');
-        this.calendarNavigation = this.page.locator('nb-calendar-navigation [data-name="chevron-right"]');
+        this.calendarNavigation = this.page.locator('[data-name="chevron-right"]');
         this.calendarDayCellCommon = this.page.locator('[class="day-cell ng-star-inserted"]');
         this.calendarDayCellRange = this.page.locator('[class="range-cell day-cell ng-star-inserted"]');
         this.calendarInputFieldCommonDatepicker = this.page.getByPlaceholder('Form Picker');
