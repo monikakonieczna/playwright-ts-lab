@@ -7,11 +7,12 @@
     "lint": "eslint .",                       
     "lint:fix": "eslint . --fix",             
     "lint:check": "eslint . --max-warnings=0" ,
-    "smoke-tests-chromium": "npx playwright test smokeTests.spec.ts --project=chromium",
-    "smoke-tests-firefox": "npx playwright test smokeTests.spec.ts --project=firefox",
-    "smoke-tests-multiple-platforms-s": "smoke-tests-chromium && smoke-tests-firefox",
-    "smoke-tests-multiple-platforms-p": "smoke-tests-chromium & smoke-tests-firefox",
-    "run-initial-tests-chromium": "npx playwright test --project=chromium --grep @initial"
+    "run:smoke:tests:chromium": "npx playwright test smokeTests.spec.ts --project=chromium",
+    "run:smoke:tests:firefox": "npx playwright test smokeTests.spec.ts --project=firefox",
+    "run:smoke:tests:multiple:platforms:s": "smoke-tests-chromium && smoke-tests-firefox",
+    "run:smoke:tests:multiple:platforms:p": "smoke-tests-chromium & smoke-tests-firefox",
+    "run:initial:tests:chromium": "npx playwright test --project=chromium --grep @initial",
+    "run:all:tests:dev": "npx playwright test smokeTests.spec.ts --project=dev"
   },
   "keywords": [],
   "author": "",
