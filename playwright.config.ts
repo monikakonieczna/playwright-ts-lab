@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import type { TestOptions } from './testOptions';
 
-export default defineConfig({
+export default defineConfig<TestOptions>({
   timeout: 40000,
   globalTimeout: 60000,
   expect: {
@@ -16,6 +17,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'http://localhost:4200/',
+    globalsQaUrls: 'http://localhost:4200/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',

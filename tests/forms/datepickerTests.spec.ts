@@ -1,10 +1,10 @@
-import { test } from '@playwright/test';
+import { test } from '../../testOptions';
 import { PageManager } from '../../page-objects';
 
 let pageManager: PageManager;
 
-test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+test.beforeEach(async ({ page, globalsQaUrls }) => {
+    await page.goto(globalsQaUrls);
     pageManager = new PageManager(page);
     await pageManager.navigateTo().datePickerPage();
 });
