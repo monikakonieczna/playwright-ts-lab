@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",                       
-    "lint:fix": "eslint . --fix",             
-    "lint:check": "eslint . --max-warnings=0" ,
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:check": "eslint . --max-warnings=0",
     "run:smoke:tests:chromium": "npx playwright test smokeTests.spec.ts --project=chromium",
     "run:smoke:tests:firefox": "npx playwright test smokeTests.spec.ts --project=firefox",
     "run:smoke:tests:multiple:platforms:s": "smoke-tests-chromium && smoke-tests-firefox",
@@ -23,6 +23,7 @@
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
+    "dotenv": "^16.4.5",
     "eslint": "^9.15.0"
   }
 }
