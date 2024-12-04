@@ -2,9 +2,10 @@ import { test } from '@playwright/test';
 import { PageManager } from '../../page-objects';
 
 let pageManager: PageManager;
+const baseUrl: string = process.env.URL ?? 'default-value';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/');
+  await page.goto(baseUrl);
   pageManager = new PageManager(page);
   await pageManager.navigateTo().formLayoutsPage();
 });

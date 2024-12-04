@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import type { TestOptions } from './testOptions';
+import 'dotenv/config';
 
 export default defineConfig<TestOptions>({
   timeout: 40000,
@@ -17,8 +18,6 @@ export default defineConfig<TestOptions>({
   reporter: 'html',
   use: {
     baseURL: 'http://localhost:4200/',
-    globalsQaUrls: 'http://localhost:4200/',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     actionTimeout: 20000,
@@ -29,22 +28,22 @@ export default defineConfig<TestOptions>({
     }
   },
 
-  /* Configure projects for major browsers */
+  /* Configure projects for major browsers   */
   projects: [
     {
-      name: 'dev',
-      use: { 
+      name: 'chromium',
+      use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:4201/',
-       },
+        baseURL: 'http://localhost:4200/',
+      },
     },
 
     {
       name: 'stg',
-      use: { 
-        ...devices['Desktop Chrome'],
+      use: {
+        ...devices['Firefox'],
         baseURL: 'http://localhost:4202/',
-       },
+      },
     },
   ],
 });

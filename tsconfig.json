@@ -8,7 +8,7 @@
       "moduleResolution": "node",              // Ensures Node.js-style module resolution
       "resolveJsonModule": true,                // Allows importing JSON files as modules
       "skipLibCheck": true,                     // Skips type checking of declaration files
-      "types": ["playwright"],                  // Includes Playwright types globally
+      "types": ["playwright", "node"],                  // Includes Playwright types globally
       "allowSyntheticDefaultImports": true     // Allow default imports for modules without them
     },
     "include": ["src/**/*.ts", "Tests/**/*.ts"], // Include source and test files
